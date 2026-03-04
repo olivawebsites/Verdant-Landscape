@@ -118,7 +118,38 @@
         .service-icon { width: 60px; height: 60px; background: #dcfce7; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; margin-bottom: 24px; }
         .service-card h3 { font-size: 1.5rem; margin-bottom: 15px; }
 
-        /* DEDICATED SPANISH SECTION */
+        /* Bento Box Portfolio with FIXED Image Links */
+        .portfolio { padding: 120px 5%; position: relative; z-index: 2; }
+        .bento-grid {
+            display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 300px; gap: 20px;
+            max-width: 1400px; margin: 0 auto;
+        }
+        .bento-item { position: relative; border-radius: var(--radius-lg); overflow: hidden; background: #cbd5e1; }
+        .bento-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.7s ease; }
+        .bento-item:hover img { transform: scale(1.05); }
+        .bento-overlay {
+            position: absolute; bottom: 0; left: 0; right: 0; padding: 40px 30px 30px;
+            background: linear-gradient(to top, rgba(15, 62, 38, 0.95), transparent);
+            color: white; display: flex; flex-direction: column; justify-content: flex-end;
+        }
+        .bento-overlay h4 { color: white; font-size: 1.4rem; margin-bottom: 5px; }
+        .bento-overlay p { color: rgba(255,255,255,0.8); margin: 0; font-size: 1rem; }
+        
+        .item-large { grid-column: span 2; grid-row: span 2; }
+        .item-wide { grid-column: span 2; grid-row: span 1; }
+        .item-tall { grid-column: span 1; grid-row: span 2; }
+
+        /* Review Slideshow Carousel */
+        .reviews-section { padding: 100px 5%; background: white; position: relative; z-index: 2; border-top: 1px solid #e2e8f0; }
+        .slider-container { max-width: 900px; margin: 0 auto; position: relative; overflow: hidden; border-radius: var(--radius-lg); box-shadow: 0 20px 50px rgba(0,0,0,0.08); background: var(--bg-offset); }
+        .slider-track { display: flex; transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); }
+        .slide-review { min-width: 100%; padding: 60px 50px; box-sizing: border-box; text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+        .slide-review .stars { color: #fbbf24; font-size: 2rem; margin-bottom: 25px; letter-spacing: 5px; }
+        .slide-review p { font-size: 1.5rem; color: var(--text-main); font-style: italic; margin-bottom: 30px; line-height: 1.6; }
+        .slide-review h4 { color: var(--brand-dark); font-size: 1.3rem; margin-bottom: 5px; }
+        .slide-review span { color: var(--text-muted); font-size: 1rem; font-weight: 500; }
+
+        /* Dedicated Spanish Hub */
         .spanish-hub {
             background: var(--brand-dark); color: white; padding: 120px 5%;
             position: relative; z-index: 2;
@@ -138,27 +169,6 @@
         
         .spanish-cta { text-align: center; margin-top: 40px; }
         .spanish-cta h4 { color: white; font-size: 2rem; margin-bottom: 20px; }
-
-        /* Bento Box Portfolio */
-        .portfolio { padding: 120px 5%; position: relative; z-index: 2; }
-        .bento-grid {
-            display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 300px; gap: 20px;
-            max-width: 1400px; margin: 0 auto;
-        }
-        .bento-item { position: relative; border-radius: var(--radius-lg); overflow: hidden; }
-        .bento-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.7s ease; }
-        .bento-item:hover img { transform: scale(1.05); }
-        .bento-overlay {
-            position: absolute; bottom: 0; left: 0; right: 0; padding: 40px 30px 30px;
-            background: linear-gradient(to top, rgba(15, 62, 38, 0.95), transparent);
-            color: white; display: flex; flex-direction: column; justify-content: flex-end;
-        }
-        .bento-overlay h4 { color: white; font-size: 1.4rem; margin-bottom: 5px; }
-        .bento-overlay p { color: rgba(255,255,255,0.8); margin: 0; font-size: 1rem; }
-        
-        .item-large { grid-column: span 2; grid-row: span 2; }
-        .item-wide { grid-column: span 2; grid-row: span 1; }
-        .item-tall { grid-column: span 1; grid-row: span 2; }
 
         /* Split Contact Section */
         .contact-section { padding: 120px 5%; background: var(--bg-offset); }
@@ -205,6 +215,7 @@
             .bento-grid { grid-template-columns: 1fr 1fr; }
             .item-large, .item-wide, .item-tall { grid-column: span 2; grid-row: span 1; }
             .contact-grid { grid-template-columns: 1fr; }
+            .slide-review p { font-size: 1.2rem; }
         }
 
         @media (max-width: 768px) {
@@ -215,6 +226,7 @@
             .item-large, .item-wide, .item-tall { grid-column: span 1; }
             .form-card { padding: 30px; }
             .contact-info h2 { font-size: 2.5rem; }
+            .slide-review { padding: 40px 20px; }
         }
     </style>
 </head>
@@ -230,8 +242,8 @@
         <ul class="nav-links">
             <li><a href="#services">Services</a></li>
             <li><a href="#portfolio">Our Work</a></li>
+            <li><a href="#reviews">Reviews</a></li>
             <li><a href="#espanol" class="espanol-link">Español</a></li>
-            <li><a href="#areas">Service Areas</a></li>
         </ul>
 
         <div class="btn-group">
@@ -290,40 +302,6 @@
             </div>
         </section>
 
-        <section class="spanish-hub" id="espanol">
-            <div class="section-header reveal">
-                <h2>Bienvenídos a Verdant</h2>
-                <p>Somos su equipo de confianza para todo tipo de proyectos de construcción y jardinería. Hablamos su idioma y estamos listos para transformar su propiedad.</p>
-            </div>
-            
-            <div class="spanish-grid">
-                <div class="spanish-card reveal">
-                    <h3>🌳 Jardinería y Árboles</h3>
-                    <p>Ofrecemos diseño de jardines, mulch, pinestraw, y servicio profesional de cuidado y tala de árboles peligrosos.</p>
-                </div>
-                <div class="spanish-card reveal" style="transition-delay: 0.1s;">
-                    <h3>🔨 Terrazas y Concreto</h3>
-                    <p>Construcción de decks de madera a medida, vertido de concreto para patios y entradas, y muros de contención.</p>
-                </div>
-                <div class="spanish-card reveal" style="transition-delay: 0.2s;">
-                    <h3>🎨 Remodelación y Pintura</h3>
-                    <p>Hacemos todo tipo de remodelación de interiores, reparación de paredes y pintura profesional para transformar su hogar.</p>
-                </div>
-                <div class="spanish-card reveal" style="transition-delay: 0.3s;">
-                    <h3>🏠 Mantenimiento Exterior</h3>
-                    <p>Limpieza profunda con lavado a presión (pressure washing) y limpieza completa de canaletas.</p>
-                </div>
-            </div>
-            
-            <div class="spanish-cta reveal">
-                <h4>¡Presupuestos 100% Gratis!</h4>
-                <div class="btn-group" style="justify-content: center; margin-top: 20px;">
-                    <a href="tel:7065725205" class="btn" style="background: white; color: var(--brand-dark);">📞 Llamar: 706-572-5205</a>
-                    <a href="sms:7064077558" class="btn btn-primary" style="background: var(--brand-accent);">💬 Text: 706-407-7558</a>
-                </div>
-            </div>
-        </section>
-
         <section class="portfolio" id="portfolio">
             <div class="section-header reveal">
                 <h2>Our Recent Projects</h2>
@@ -332,7 +310,7 @@
             
             <div class="bento-grid">
                 <div class="bento-item item-large reveal">
-                    <img src="https://images.unsplash.com/photo-1592424001842-8395dd873c15?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Arborist working in a tree">
+                    <img src="https://images.unsplash.com/photo-1516048015710-7a3b4c86be43?auto=format&fit=crop&w=1000&q=80" alt="Arborist working in a tree">
                     <div class="bento-overlay">
                         <h4>Complex Tree Removal</h4>
                         <p>Safe, efficient extraction by experienced climbers.</p>
@@ -340,7 +318,7 @@
                 </div>
                 
                 <div class="bento-item reveal" style="transition-delay: 0.1s;">
-                    <img src="https://images.unsplash.com/photo-1416879598555-46eb55353846?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Landscaper planting">
+                    <img src="https://images.unsplash.com/photo-1416879598555-46eb55353846?auto=format&fit=crop&w=800&q=80" alt="Landscaper planting">
                     <div class="bento-overlay">
                         <h4>Landscape Design</h4>
                         <p>Custom planting and yard transformations.</p>
@@ -348,7 +326,7 @@
                 </div>
                 
                 <div class="bento-item item-tall reveal" style="transition-delay: 0.2s;">
-                    <img src="https://images.unsplash.com/photo-1504307651254-35680f356f90?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Contractor measuring interior">
+                    <img src="https://images.unsplash.com/photo-1581094288338-2314dddb7ece?auto=format&fit=crop&w=800&q=80" alt="Contractor measuring interior">
                     <div class="bento-overlay">
                         <h4>Complete Renovations</h4>
                         <p>Interior structural remodeling & drywall.</p>
@@ -356,7 +334,7 @@
                 </div>
 
                 <div class="bento-item reveal" style="transition-delay: 0.3s;">
-                    <img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Painter working on interior wall">
+                    <img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=800&q=80" alt="Painter working on interior wall">
                     <div class="bento-overlay">
                         <h4>Interior Painting</h4>
                         <p>Flawless edge-to-edge finishes by professionals.</p>
@@ -364,7 +342,7 @@
                 </div>
 
                 <div class="bento-item item-wide reveal" style="transition-delay: 0.4s;">
-                    <img src="https://images.unsplash.com/photo-1574362848149-11496d93a7c7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Construction crew working on concrete">
+                    <img src="https://images.unsplash.com/photo-1541888081640-e7401211e0bc?auto=format&fit=crop&w=1200&q=80" alt="Construction crew working on concrete">
                     <div class="bento-overlay">
                         <h4>Custom Decks & Hardscapes</h4>
                         <p>Professional concrete pouring and retaining wall construction.</p>
@@ -373,6 +351,88 @@
             </div>
         </section>
     </div>
+
+    <section class="reviews-section" id="reviews">
+        <div class="section-header reveal">
+            <h2>What Our Clients Say</h2>
+            <p>Don't just take our word for it. Read what your neighbors have to say about our work.</p>
+        </div>
+        
+        <div class="slider-container reveal">
+            <div class="slider-track" id="reviewTrack">
+                
+                <div class="slide-review">
+                    <div class="stars">★★★★★</div>
+                    <p>"Verdant did an incredible job taking down two massive oak trees near my roof. They were fast, safe, and cleaned up everything perfectly. Highly recommend!"</p>
+                    <h4>Mark T.</h4>
+                    <span>Roswell, GA</span>
+                </div>
+
+                <div class="slide-review">
+                    <div class="stars">★★★★★</div>
+                    <p>"Hicieron un excelente trabajo con la pintura interior de toda mi casa. Muy profesionales, el equipo fue muy limpio y el precio fue muy justo. ¡100% Recomendados!"</p>
+                    <h4>Carlos M.</h4>
+                    <span>Norcross, GA</span>
+                </div>
+
+                <div class="slide-review">
+                    <div class="stars">★★★★★</div>
+                    <p>"They poured a new concrete patio and built a retaining wall for our backyard. The craftsmanship is top-notch and they finished ahead of schedule."</p>
+                    <h4>David H.</h4>
+                    <span>Johns Creek, GA</span>
+                </div>
+
+                <div class="slide-review">
+                    <div class="stars">★★★★★</div>
+                    <p>"Excelente servicio cortando unos pinos peligrosos cerca de mi deck. Llegaron a tiempo, tenían todo el equipo de seguridad y dejaron el patio impecable."</p>
+                    <h4>Maria L.</h4>
+                    <span>Lawrenceville, GA</span>
+                </div>
+
+                <div class="slide-review">
+                    <div class="stars">★★★★★</div>
+                    <p>"Hired them for a full kitchen teardown and drywall installation. Unbelievable attention to detail. Our home looks brand new thanks to the Verdant crew."</p>
+                    <h4>Sarah J.</h4>
+                    <span>Alpharetta, GA</span>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="spanish-hub" id="espanol">
+        <div class="section-header reveal">
+            <h2>Bienvenídos a Verdant</h2>
+            <p>Somos su equipo de confianza para todo tipo de proyectos de construcción y jardinería. Hablamos su idioma y estamos listos para transformar su propiedad.</p>
+        </div>
+        
+        <div class="spanish-grid">
+            <div class="spanish-card reveal">
+                <h3>🌳 Jardinería y Árboles</h3>
+                <p>Ofrecemos diseño de jardines, mulch, pinestraw, y servicio profesional de cuidado y tala de árboles peligrosos.</p>
+            </div>
+            <div class="spanish-card reveal" style="transition-delay: 0.1s;">
+                <h3>🔨 Terrazas y Concreto</h3>
+                <p>Construcción de decks de madera a medida, vertido de concreto para patios y entradas, y muros de contención.</p>
+            </div>
+            <div class="spanish-card reveal" style="transition-delay: 0.2s;">
+                <h3>🎨 Remodelación y Pintura</h3>
+                <p>Hacemos todo tipo de remodelación de interiores, reparación de paredes y pintura profesional para transformar su hogar.</p>
+            </div>
+            <div class="spanish-card reveal" style="transition-delay: 0.3s;">
+                <h3>🏠 Mantenimiento Exterior</h3>
+                <p>Limpieza profunda con lavado a presión (pressure washing) y limpieza completa de canaletas.</p>
+            </div>
+        </div>
+        
+        <div class="spanish-cta reveal">
+            <h4>¡Presupuestos 100% Gratis!</h4>
+            <div class="btn-group" style="justify-content: center; margin-top: 20px;">
+                <a href="tel:7065725205" class="btn" style="background: white; color: var(--brand-dark);">📞 Llamar: 706-572-5205</a>
+                <a href="sms:7064077558" class="btn btn-primary" style="background: var(--brand-accent);">💬 Text: 706-407-7558</a>
+            </div>
+        </div>
+    </section>
 
     <section class="contact-section" id="contact">
         <div class="contact-grid">
@@ -458,15 +518,30 @@
 
     <script>
         // Hero Slideshow Logic
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.slide');
+        let currentHeroSlide = 0;
+        const heroSlides = document.querySelectorAll('.hero .slide');
         
-        function nextSlide() {
-            slides[currentSlide].classList.remove('active');
-            currentSlide = (currentSlide + 1) % slides.length;
-            slides[currentSlide].classList.add('active');
+        function nextHeroSlide() {
+            if(heroSlides.length > 0) {
+                heroSlides[currentHeroSlide].classList.remove('active');
+                currentHeroSlide = (currentHeroSlide + 1) % heroSlides.length;
+                heroSlides[currentHeroSlide].classList.add('active');
+            }
         }
-        setInterval(nextSlide, 5000);
+        setInterval(nextHeroSlide, 5000);
+
+        // Review Slider Logic
+        let currentReview = 0;
+        const reviewTrack = document.getElementById('reviewTrack');
+        const reviews = document.querySelectorAll('.slide-review');
+        
+        function nextReview() {
+            if(reviews.length > 0) {
+                currentReview = (currentReview + 1) % reviews.length;
+                reviewTrack.style.transform = `translateX(-${currentReview * 100}%)`;
+            }
+        }
+        setInterval(nextReview, 4000); // Transitions reviews every 4 seconds
 
         // Scroll Reveal Logic
         function reveal() {
