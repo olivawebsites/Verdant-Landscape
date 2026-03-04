@@ -51,9 +51,10 @@
 
         .logo img { height: 60px; width: auto; display: block; border-radius: 8px; }
 
-        .nav-links { display: flex; gap: 40px; list-style: none; margin: 0; padding: 0; }
+        .nav-links { display: flex; gap: 30px; list-style: none; margin: 0; padding: 0; }
         .nav-links a { font-weight: 600; font-size: 1rem; color: var(--text-main); transition: var(--transition); }
         .nav-links a:hover { color: var(--brand-light); }
+        .nav-links .espanol-link { color: var(--brand-accent); }
 
         /* Buttons */
         .btn-group { display: flex; gap: 15px; }
@@ -72,7 +73,6 @@
             text-align: center; color: white; padding: 0 5%; margin-top: 0; overflow: hidden;
         }
         
-        /* Slideshow Backgrounds */
         .slide {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             background-size: cover; background-position: center;
@@ -89,7 +89,6 @@
         .hero-content h1 span { color: var(--brand-light); }
         .hero-content p { font-size: 1.5rem; margin-bottom: 40px; color: #e2e8f0; }
 
-        /* Floating Badge */
         .floating-badge {
             background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2);
             padding: 15px 30px; border-radius: 50px; display: inline-flex; align-items: center; gap: 15px; margin-bottom: 30px;
@@ -106,7 +105,7 @@
         }
 
         /* Services Section */
-        .section-header { text-align: center; max-width: 700px; margin: 0 auto 60px; position: relative; z-index: 2; }
+        .section-header { text-align: center; max-width: 800px; margin: 0 auto 60px; position: relative; z-index: 2; }
         .section-header h2 { font-size: 3rem; margin-bottom: 20px; }
         
         .services { background: var(--bg-offset); padding: 120px 5%; }
@@ -118,6 +117,27 @@
         .service-card:hover { transform: translateY(-10px); box-shadow: 0 30px 60px rgba(0,0,0,0.06); }
         .service-icon { width: 60px; height: 60px; background: #dcfce7; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; margin-bottom: 24px; }
         .service-card h3 { font-size: 1.5rem; margin-bottom: 15px; }
+
+        /* DEDICATED SPANISH SECTION */
+        .spanish-hub {
+            background: var(--brand-dark); color: white; padding: 120px 5%;
+            position: relative; z-index: 2;
+        }
+        .spanish-hub .section-header h2 { color: white; font-size: 3.5rem; }
+        .spanish-hub .section-header p { color: #cbd5e1; font-size: 1.2rem; }
+        
+        .spanish-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 1400px; margin: 0 auto 50px;
+        }
+        .spanish-card {
+            background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 40px; border-radius: var(--radius-lg); backdrop-filter: blur(10px);
+        }
+        .spanish-card h3 { color: var(--brand-light); font-size: 1.5rem; margin-bottom: 15px; }
+        .spanish-card p { color: #f1f5f9; margin: 0; }
+        
+        .spanish-cta { text-align: center; margin-top: 40px; }
+        .spanish-cta h4 { color: white; font-size: 2rem; margin-bottom: 20px; }
 
         /* Bento Box Portfolio */
         .portfolio { padding: 120px 5%; position: relative; z-index: 2; }
@@ -136,26 +156,25 @@
         .bento-overlay h4 { color: white; font-size: 1.4rem; margin-bottom: 5px; }
         .bento-overlay p { color: rgba(255,255,255,0.8); margin: 0; font-size: 1rem; }
         
-        /* Bento Sizing */
         .item-large { grid-column: span 2; grid-row: span 2; }
         .item-wide { grid-column: span 2; grid-row: span 1; }
         .item-tall { grid-column: span 1; grid-row: span 2; }
 
-        /* Bilingual / Contact Section Split */
-        .contact-section { padding: 120px 5%; background: var(--brand-dark); color: white; }
+        /* Split Contact Section */
+        .contact-section { padding: 120px 5%; background: var(--bg-offset); }
         .contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; max-width: 1400px; margin: 0 auto; align-items: center; }
         
-        .contact-info h2 { color: white; font-size: 3.5rem; margin-bottom: 20px; }
-        .contact-info p { color: #cbd5e1; font-size: 1.2rem; margin-bottom: 40px; }
+        .contact-info h2 { font-size: 3.5rem; margin-bottom: 20px; }
+        .contact-info p { font-size: 1.2rem; margin-bottom: 40px; }
         
         .contact-methods { display: flex; flex-direction: column; gap: 20px; margin-bottom: 50px; }
-        .method { display: flex; align-items: center; gap: 20px; background: rgba(255,255,255,0.05); padding: 20px; border-radius: var(--radius-md); border: 1px solid rgba(255,255,255,0.1); }
+        .method { display: flex; align-items: center; gap: 20px; background: white; padding: 20px; border-radius: var(--radius-md); box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
         .method-icon { font-size: 2rem; }
-        .method-text h4 { color: white; margin: 0 0 5px 0; font-size: 1.1rem; }
+        .method-text h4 { color: var(--brand-dark); margin: 0 0 5px 0; font-size: 1.1rem; }
         .method-text a { color: var(--brand-light); font-size: 1.4rem; font-weight: 700; }
 
         /* Modern Form */
-        .form-card { background: white; padding: 50px; border-radius: var(--radius-lg); box-shadow: 0 25px 50px rgba(0,0,0,0.2); }
+        .form-card { background: white; padding: 50px; border-radius: var(--radius-lg); box-shadow: 0 25px 50px rgba(0,0,0,0.08); }
         .form-card h3 { color: var(--brand-dark); margin-bottom: 30px; font-size: 2rem; }
         .input-group { margin-bottom: 20px; }
         .input-group label { display: block; font-weight: 600; color: var(--text-main); margin-bottom: 8px; font-size: 0.95rem; }
@@ -169,10 +188,10 @@
         }
         
         /* Service Areas Pill List */
-        .areas-wrapper { padding: 80px 5%; background: var(--bg-offset); text-align: center; }
+        .areas-wrapper { padding: 80px 5%; background: white; text-align: center; border-top: 1px solid #e2e8f0; }
         .areas-wrapper h3 { font-size: 2rem; margin-bottom: 40px; }
         .pill-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; max-width: 1200px; margin: 0 auto; }
-        .pill { background: white; padding: 12px 24px; border-radius: 50px; font-weight: 600; color: var(--brand-dark); box-shadow: 0 4px 6px rgba(0,0,0,0.02); border: 1px solid #e2e8f0; }
+        .pill { background: var(--bg-offset); padding: 12px 24px; border-radius: 50px; font-weight: 600; color: var(--brand-dark); border: 1px solid #e2e8f0; }
 
         /* Footer */
         footer { background: #022c22; color: #94a3b8; padding: 40px 5%; text-align: center; }
@@ -211,6 +230,7 @@
         <ul class="nav-links">
             <li><a href="#services">Services</a></li>
             <li><a href="#portfolio">Our Work</a></li>
+            <li><a href="#espanol" class="espanol-link">Español</a></li>
             <li><a href="#areas">Service Areas</a></li>
         </ul>
 
@@ -221,8 +241,8 @@
     </header>
 
     <section class="hero">
-        <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1598902108854-10e335adac99?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');"></div>
-        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1504307651254-35680f356f90?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');"></div>
+        <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1558904541-efa843a96f09?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');"></div>
+        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1581094288338-2314dddb7ece?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');"></div>
         <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');"></div>
 
         <div class="hero-content reveal">
@@ -233,8 +253,8 @@
             <p>From high-end landscape design and expert tree care to complete interior remodeling. Verdant delivers unmatched quality.</p>
             <div class="btn-group" style="justify-content: center;">
                 <a href="#contact" class="btn btn-primary" style="padding: 18px 36px; font-size: 1.1rem;">Get Your Free Quote</a>
+                <a href="#espanol" class="btn btn-outline" style="padding: 18px 36px; font-size: 1.1rem; color: white; border-color: white;">Ver en Español</a>
             </div>
-            <p style="margin-top: 20px; font-size: 1rem; color: var(--brand-light); font-weight: 700;">¡Hablamos Español! Presupuestos Gratis.</p>
         </div>
     </section>
 
@@ -270,6 +290,40 @@
             </div>
         </section>
 
+        <section class="spanish-hub" id="espanol">
+            <div class="section-header reveal">
+                <h2>Bienvenídos a Verdant</h2>
+                <p>Somos su equipo de confianza para todo tipo de proyectos de construcción y jardinería. Hablamos su idioma y estamos listos para transformar su propiedad.</p>
+            </div>
+            
+            <div class="spanish-grid">
+                <div class="spanish-card reveal">
+                    <h3>🌳 Jardinería y Árboles</h3>
+                    <p>Ofrecemos diseño de jardines, mulch, pinestraw, y servicio profesional de cuidado y tala de árboles peligrosos.</p>
+                </div>
+                <div class="spanish-card reveal" style="transition-delay: 0.1s;">
+                    <h3>🔨 Terrazas y Concreto</h3>
+                    <p>Construcción de decks de madera a medida, vertido de concreto para patios y entradas, y muros de contención.</p>
+                </div>
+                <div class="spanish-card reveal" style="transition-delay: 0.2s;">
+                    <h3>🎨 Remodelación y Pintura</h3>
+                    <p>Hacemos todo tipo de remodelación de interiores, reparación de paredes y pintura profesional para transformar su hogar.</p>
+                </div>
+                <div class="spanish-card reveal" style="transition-delay: 0.3s;">
+                    <h3>🏠 Mantenimiento Exterior</h3>
+                    <p>Limpieza profunda con lavado a presión (pressure washing) y limpieza completa de canaletas.</p>
+                </div>
+            </div>
+            
+            <div class="spanish-cta reveal">
+                <h4>¡Presupuestos 100% Gratis!</h4>
+                <div class="btn-group" style="justify-content: center; margin-top: 20px;">
+                    <a href="tel:7065725205" class="btn" style="background: white; color: var(--brand-dark);">📞 Llamar: 706-572-5205</a>
+                    <a href="sms:7064077558" class="btn btn-primary" style="background: var(--brand-accent);">💬 Text: 706-407-7558</a>
+                </div>
+            </div>
+        </section>
+
         <section class="portfolio" id="portfolio">
             <div class="section-header reveal">
                 <h2>Our Recent Projects</h2>
@@ -278,7 +332,7 @@
             
             <div class="bento-grid">
                 <div class="bento-item item-large reveal">
-                    <img src="https://images.unsplash.com/photo-1622383563227-04401ab4e5ea?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Arborist working in a tree">
+                    <img src="https://images.unsplash.com/photo-1592424001842-8395dd873c15?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Arborist working in a tree">
                     <div class="bento-overlay">
                         <h4>Complex Tree Removal</h4>
                         <p>Safe, efficient extraction by experienced climbers.</p>
@@ -310,7 +364,7 @@
                 </div>
 
                 <div class="bento-item item-wide reveal" style="transition-delay: 0.4s;">
-                    <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Construction crew working on concrete">
+                    <img src="https://images.unsplash.com/photo-1574362848149-11496d93a7c7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Construction crew working on concrete">
                     <div class="bento-overlay">
                         <h4>Custom Decks & Hardscapes</h4>
                         <p>Professional concrete pouring and retaining wall construction.</p>
@@ -318,25 +372,27 @@
                 </div>
             </div>
         </section>
-    </div> <section class="contact-section" id="contact">
+    </div>
+
+    <section class="contact-section" id="contact">
         <div class="contact-grid">
             
             <div class="contact-info reveal">
                 <h2>Let's build something beautiful.</h2>
-                <p>We provide free, no-obligation estimates for all projects. Llámenos hoy, ¡hablamos Español y estamos listos para ayudarle a remodelar su casa!</p>
+                <p>We provide free, no-obligation estimates for all projects. Send us a message below, or reach out directly.</p>
                 
                 <div class="contact-methods">
                     <div class="method">
                         <div class="method-icon">📞</div>
                         <div class="method-text">
-                            <h4>Give us a call / Llámenos</h4>
+                            <h4>Give us a call</h4>
                             <a href="tel:7065725205">706-572-5205</a>
                         </div>
                     </div>
                     <div class="method">
                         <div class="method-icon">💬</div>
                         <div class="method-text">
-                            <h4>Send a text / Envíe un texto</h4>
+                            <h4>Send a text</h4>
                             <a href="sms:7064077558">706-407-7558</a>
                         </div>
                     </div>
@@ -410,8 +466,6 @@
             currentSlide = (currentSlide + 1) % slides.length;
             slides[currentSlide].classList.add('active');
         }
-        
-        // Change slide every 5 seconds
         setInterval(nextSlide, 5000);
 
         // Scroll Reveal Logic
@@ -420,14 +474,14 @@
             for (var i = 0; i < reveals.length; i++) {
                 var windowHeight = window.innerHeight;
                 var elementTop = reveals[i].getBoundingClientRect().top;
-                var elementVisible = 100; // Trigger point
+                var elementVisible = 100;
                 if (elementTop < windowHeight - elementVisible) {
                     reveals[i].classList.add("active");
                 }
             }
         }
         window.addEventListener("scroll", reveal);
-        reveal(); // Trigger once on load
+        reveal(); 
     </script>
 </body>
 </html>
