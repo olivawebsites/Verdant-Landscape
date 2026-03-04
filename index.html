@@ -17,6 +17,11 @@
             --bg-gray: #f9fafb;
         }
 
+        /* Smooth scrolling for anchor links */
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Poppins', sans-serif;
             margin: 0;
@@ -24,7 +29,7 @@
             color: var(--text-dark);
             background-color: var(--bg-gray);
             overflow-x: hidden;
-            font-size: 18px; /* Made base font bigger */
+            font-size: 18px; 
         }
 
         /* Typography */
@@ -32,15 +37,15 @@
         p { line-height: 1.8; }
         a { text-decoration: none; color: inherit; }
 
-        /* Navigation */
+        /* Navigation Header */
         header {
             background-color: var(--bg-light);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 10px -1px rgba(0, 0, 0, 0.1);
             position: fixed;
             width: 100%;
             top: 0;
-            z-index: 100;
-            padding: 1.2rem 5%;
+            z-index: 1000;
+            padding: 1rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -54,10 +59,40 @@
             font-size: 1.8rem;
             font-weight: 800;
             color: var(--dark-green);
+            z-index: 1001; /* Keeps logo above mobile menu */
         }
 
         .logo span {
             color: var(--primary-green);
+        }
+
+        /* Desktop Navigation Links */
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-menu li a {
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+
+        .nav-menu li a:hover {
+            color: var(--primary-green);
+        }
+
+        /* Mobile Menu Toggle (Hamburger) */
+        .menu-toggle {
+            display: none;
+            font-size: 2rem;
+            cursor: pointer;
+            color: var(--dark-green);
+            z-index: 1001;
         }
 
         .contact-buttons {
@@ -92,7 +127,8 @@
 
         /* Sections General */
         section {
-            padding: 100px 5%; /* Increased padding for a bigger feel */
+            padding: 100px 5%; 
+            scroll-margin-top: 80px; /* Prevents header from covering section titles when scrolling */
         }
 
         .section-title {
@@ -105,14 +141,14 @@
         /* Hero Section */
         .hero {
             background: linear-gradient(rgba(6, 78, 59, 0.75), rgba(6, 78, 59, 0.75)), url('https://images.unsplash.com/photo-1558904541-efa843a96f09?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
-            height: 100vh; /* Made full screen height */
+            height: 100vh; 
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             color: white;
             padding: 0 20px;
-            margin-top: 80px;
+            margin-top: 0; /* Reset margin since header is fixed */
         }
 
         .hero-content h1 {
@@ -257,7 +293,7 @@
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(0,0,0,0.7);
             display: none; justify-content: center; align-items: center;
-            z-index: 1000; opacity: 0; transition: opacity 0.3s ease;
+            z-index: 2000; opacity: 0; transition: opacity 0.3s ease;
         }
 
         .modal-content {
@@ -279,12 +315,30 @@
         .modal-content h2 { color: var(--dark-green); margin-bottom: 15px; font-size: 2.5rem; }
         .modal-content p { margin-bottom: 30px; color: #4b5563; font-size: 1.2rem; }
 
-        /* Responsive */
-        @media (max-width: 768px) {
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .contact-buttons { display: none; }
+            .menu-toggle { display: block; }
+            
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                height: 100vh;
+                width: 250px;
+                background-color: var(--bg-light);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+                transition: right 0.3s ease;
+                z-index: 1000;
+            }
+
+            .nav-menu.active { right: 0; }
+            .nav-menu li { margin: 20px 0; }
+            
             .hero-content h1 { font-size: 3rem; }
-            .hero-content p { font-size: 1.3rem; }
-            .contact-buttons { display: none; /* Hide on mobile to save space, rely on hero buttons */ }
-            header { padding: 1rem 5%; justify-content: center; }
             section { padding: 60px 5%; }
             .section-title { font-size: 2.5rem; }
         }
@@ -308,13 +362,25 @@
         <div class="logo">
             🌲 <div>Verdant <span>Services</span></div>
         </div>
+        
+        <div class="menu-toggle" id="mobile-menu" onclick="toggleMenu()">&#9776;</div>
+
+        <nav>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#services" onclick="toggleMenu()">Services</a></li>
+                <li><a href="#portfolio" onclick="toggleMenu()">Portfolio</a></li>
+                <li><a href="#reviews" onclick="toggleMenu()">Reviews</a></li>
+                <li><a href="#areas" onclick="toggleMenu()">Service Areas</a></li>
+            </ul>
+        </nav>
+        
         <div class="contact-buttons">
             <a href="tel:7065725205" class="btn btn-call">Call Us</a>
             <a href="sms:7064077558" class="btn btn-text">Text Us</a>
         </div>
     </header>
 
-    <section class="hero">
+    <section class="hero" id="home">
         <div class="hero-content">
             <h1>Transform Your Property Inside & Out</h1>
             <p>From custom landscapes and tree care to full interior remodeling and painting. Top-tier service for your entire home.</p>
@@ -322,7 +388,7 @@
         </div>
     </section>
 
-    <section class="services">
+    <section class="services" id="services">
         <h2 class="section-title">Everything You Need</h2>
         <div class="service-grid">
             <div class="service-card">
@@ -344,7 +410,7 @@
         </div>
     </section>
 
-    <section class="portfolio">
+    <section class="portfolio" id="portfolio">
         <h2 class="section-title">Recent Projects</h2>
         <div class="portfolio-grid">
             <div class="portfolio-item">
@@ -374,7 +440,7 @@
         </div>
     </section>
 
-    <section class="reviews">
+    <section class="reviews" id="reviews">
         <h2 class="section-title">What Our Clients Say</h2>
         <div class="review-grid">
             <div class="review-card">
@@ -404,7 +470,7 @@
         </div>
     </section>
 
-    <section class="areas">
+    <section class="areas" id="areas">
         <h2>Proudly Serving</h2>
         <p>Providing top-tier landscaping and remodeling services across the following areas:</p>
         <div class="area-tags">
@@ -439,17 +505,24 @@
     </footer>
 
     <script>
+        // Modal Pop-up logic
         const modal = document.getElementById('promoModal');
-
         function openModal() { modal.classList.add('active'); }
         function closeModal() { modal.classList.remove('active'); }
 
-        // Automatically open the pop-up 4 seconds after the page loads
         window.onload = () => { setTimeout(openModal, 4000); };
 
-        // Close modal if user clicks outside of the box
         window.onclick = function(event) {
             if (event.target == modal) { closeModal(); }
+        }
+
+        // Mobile Menu Toggle logic
+        function toggleMenu() {
+            const navMenu = document.getElementById('nav-menu');
+            // Only toggle if the screen width is small enough (tablet/mobile)
+            if (window.innerWidth <= 992) {
+                navMenu.classList.toggle('active');
+            }
         }
     </script>
 </body>
