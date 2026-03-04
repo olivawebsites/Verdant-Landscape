@@ -4,391 +4,749 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Verdant Landscape & Tree Services | Free Estimates | Georgia</title>
-  <meta name="description" content="Verdant Landscape & Tree Services — decks, mulch, concrete, hardscapes, pinestraw, gutter cleaning, pressure washing, home renovations, interior remodeling, and painting. Free estimates. Serving Atlanta and surrounding cities across Georgia." />
-  <meta name="theme-color" content="#0b2a18" />
+  <meta name="description" content="Verdant Landscape & Tree Services — decks, mulch, concrete, hardscapes, pine straw, gutter cleaning, pressure washing, and home renovations (interior remodeling & painting). Serving Atlanta & surrounding cities. Free estimates." />
 
   <style>
     :root{
-      --bg:#07150d;
+      --bg:#050b09;
       --panel:rgba(255,255,255,.06);
       --panel2:rgba(255,255,255,.10);
-      --text:#eef7f1;
-      --muted:#b8d2c3;
-      --brand:#2fe08b;
-      --brand2:#00c26a;
-      --line:rgba(255,255,255,.10);
-      --shadow:0 22px 70px rgba(0,0,0,.55);
-      --radius:22px;
-      --max:1160px;
+      --text:#eafff5;
+      --muted:#b6c9c1;
+      --brand:#22c55e;
+      --brand2:#16a34a;
+      --line:rgba(255,255,255,.12);
+      --shadow:0 24px 80px rgba(0,0,0,.55);
+      --r:22px;
+      --max:1180px;
     }
+
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
       margin:0;
-      color:var(--text);
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color:var(--text);
       background:
-        radial-gradient(900px 520px at 12% 0%, rgba(47,224,139,.20), transparent 62%),
-        radial-gradient(900px 520px at 88% 10%, rgba(0,194,106,.14), transparent 60%),
-        linear-gradient(180deg, #07150d 0%, #050f0a 35%, #050b08 100%);
+        radial-gradient(900px 520px at 12% 8%, rgba(34,197,94,.22), transparent 60%),
+        radial-gradient(900px 520px at 88% 18%, rgba(22,163,74,.16), transparent 60%),
+        linear-gradient(180deg, #060e0b 0%, #050b09 45%, #040806 100%);
       line-height:1.55;
+      overflow-x:hidden;
     }
-    a{color:inherit}
+    a{color:inherit;text-decoration:none}
     .wrap{max-width:var(--max); margin:0 auto; padding:22px}
-    .nav{
+
+    /* Top bar */
+    .topbar{
       position:sticky; top:0; z-index:50;
       backdrop-filter: blur(14px);
-      background: rgba(4,10,7,.55);
+      background: linear-gradient(180deg, rgba(5,11,9,.78), rgba(5,11,9,.45));
       border-bottom:1px solid var(--line);
     }
-    .navin{max-width:var(--max); margin:0 auto; padding:14px 22px; display:flex; align-items:center; justify-content:space-between; gap:14px}
+    .topbar .row{
+      display:flex; align-items:center; justify-content:space-between; gap:14px;
+      max-width:var(--max); margin:0 auto; padding:14px 22px;
+    }
     .brand{
-      display:flex; align-items:center; gap:12px; min-width:220px;
+      display:flex; align-items:center; gap:12px;
+      min-width:220px;
     }
-    .brand img{
-      width:42px; height:42px; object-fit:contain;
-      border-radius:12px;
-      background: rgba(255,255,255,.06);
+    .logo{
+      width:44px; height:44px; border-radius:12px;
+      background:rgba(255,255,255,.06);
       border:1px solid var(--line);
-      padding:6px;
+      box-shadow: 0 16px 40px rgba(0,0,0,.35);
+      display:grid; place-items:center;
+      overflow:hidden;
     }
-    .brand .t1{font-weight:800; letter-spacing:.2px}
-    .brand .t2{font-size:12px; color:var(--muted)}
-    .navlinks{display:flex; gap:16px; align-items:center; flex-wrap:wrap; justify-content:center}
-    .navlinks a{font-size:13px; text-decoration:none; color:var(--muted)}
-    .navlinks a:hover{color:var(--text)}
-    .navcta{display:flex; gap:10px; align-items:center; justify-content:flex-end}
+    .logo img{width:100%; height:100%; object-fit:cover}
+    .brand h1{font-size:14px; margin:0; line-height:1.1}
+    .brand p{margin:2px 0 0; font-size:12px; color:var(--muted)}
+    nav{display:flex; gap:16px; align-items:center}
+    nav a{font-size:13px; color:var(--muted)}
+    nav a:hover{color:var(--text)}
+    .actions{display:flex; gap:10px; align-items:center; flex-wrap:wrap; justify-content:flex-end}
+
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:10px 12px;
+      border-radius:999px;
+      background:rgba(255,255,255,.06);
+      border:1px solid var(--line);
+      color:var(--muted);
+      font-size:12px;
+    }
     .btn{
       display:inline-flex; align-items:center; justify-content:center; gap:10px;
-      padding:10px 14px; border-radius:999px;
+      padding:11px 14px;
+      border-radius:14px;
       border:1px solid var(--line);
-      background: rgba(255,255,255,.06);
-      text-decoration:none;
-      font-weight:700; font-size:13px;
-      box-shadow: 0 10px 30px rgba(0,0,0,.25);
+      background:rgba(255,255,255,.06);
+      color:var(--text);
+      cursor:pointer;
+      transition:.18s transform, .18s background;
+      font-weight:600;
+      font-size:13px;
       white-space:nowrap;
     }
-    .btn:hover{background: rgba(255,255,255,.10)}
+    .btn:hover{transform:translateY(-1px); background:rgba(255,255,255,.09)}
     .btn.primary{
-      background: linear-gradient(135deg, var(--brand), var(--brand2));
-      border-color: transparent;
-      color:#062112;
+      border-color: rgba(34,197,94,.45);
+      background: linear-gradient(180deg, rgba(34,197,94,.22), rgba(22,163,74,.10));
     }
-    .btn.primary:hover{filter:brightness(1.03)}
+    .btn.green{
+      background: linear-gradient(180deg, rgba(34,197,94,.95), rgba(22,163,74,.85));
+      color:#03110a;
+      border: none;
+      box-shadow: 0 18px 50px rgba(34,197,94,.24);
+    }
+    .btn.ghost{background:transparent}
+
+    /* Hero */
     .hero{
       padding:34px 0 10px;
     }
-    .grid2{
+    .heroGrid{
       display:grid;
       grid-template-columns: 1.25fr .75fr;
       gap:18px;
       align-items:stretch;
     }
-    @media (max-width: 920px){
-      .grid2{grid-template-columns:1fr}
-      .navin{flex-wrap:wrap}
-      .navcta{width:100%; justify-content:flex-start}
-      .brand{min-width:auto}
-    }
     .card{
-      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
       border:1px solid var(--line);
-      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
+      border-radius: var(--r);
       box-shadow: var(--shadow);
       overflow:hidden;
+      position:relative;
     }
-    .cardin{padding:22px}
-    .pill{
-      display:inline-flex; align-items:center; gap:10px;
-      padding:8px 12px; border-radius:999px;
-      background: rgba(47,224,139,.10);
-      border:1px solid rgba(47,224,139,.22);
-      color:#c9ffe4;
-      font-weight:700; font-size:12px;
+    .card::before{
+      content:"";
+      position:absolute; inset:-2px;
+      background: radial-gradient(600px 180px at 15% 10%, rgba(34,197,94,.20), transparent 55%);
+      pointer-events:none;
     }
-    h1{
-      margin:14px 0 10px;
-      font-size: clamp(34px, 4.6vw, 54px);
-      line-height:1.05;
-      letter-spacing:-.8px;
+    .heroMain{padding:26px}
+    .badgeRow{
+      display:flex; gap:10px; flex-wrap:wrap; align-items:center;
+      margin-bottom:14px;
     }
-    .sub{
-      color:var(--muted);
-      font-size:15px;
-      max-width: 56ch;
-      margin: 0 0 18px;
-    }
-    .tags{display:flex; flex-wrap:wrap; gap:10px; margin:16px 0 18px}
-    .tag{
-      padding:7px 10px;
+    .badge{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 10px;
       border-radius:999px;
-      background: rgba(255,255,255,.06);
+      background:rgba(255,255,255,.06);
       border:1px solid var(--line);
+      font-size:12px;
+      color:var(--muted);
+    }
+    .badge strong{color:var(--text)}
+    .hero h2{
+      margin:0;
+      font-size:44px;
+      line-height:1.03;
+      letter-spacing:-.02em;
+    }
+    .hero p{
+      margin:12px 0 0;
+      color:var(--muted);
+      max-width:58ch;
+      font-size:14px;
+    }
+    .heroCtas{display:flex; gap:10px; flex-wrap:wrap; margin-top:18px}
+    .chips{display:flex; gap:10px; flex-wrap:wrap; margin-top:16px}
+    .chip{
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:rgba(0,0,0,.20);
       color:var(--muted);
       font-size:12px;
-      font-weight:700;
     }
-    .ctaRow{display:flex; flex-wrap:wrap; gap:10px; margin-top:14px}
-    .note{color:var(--muted); font-size:12px; margin-top:10px}
-    .sidebox h3{margin:0 0 10px; font-size:14px}
-    .sidebox .mini{
-      background: rgba(255,255,255,.04);
+
+    .side{padding:18px}
+    .side h3{margin:0 0 8px; font-size:14px}
+    .side .box{
       border:1px solid var(--line);
-      border-radius: 18px;
+      background:rgba(0,0,0,.20);
+      border-radius:18px;
       padding:14px;
       margin-top:12px;
     }
-    .kv{display:flex; gap:10px; flex-wrap:wrap}
-    .kv a{flex:1; min-width:180px}
-    .section{padding:24px 0}
+    .side small{color:var(--muted)}
+    .side .nums{display:flex; gap:10px; flex-wrap:wrap; margin-top:10px}
+    .side .nums a{flex:1; min-width:180px}
+    .side .nums .btn{width:100%}
+
+    /* Sections */
+    section{padding:26px 0}
     .sectionTitle{
       display:flex; align-items:flex-end; justify-content:space-between; gap:14px; flex-wrap:wrap;
       margin-bottom:14px;
     }
-    .sectionTitle h2{margin:0; font-size:22px}
+    .sectionTitle h3{margin:0; font-size:20px}
     .sectionTitle p{margin:0; color:var(--muted); font-size:13px}
-    .services{
+
+    .grid{
       display:grid;
       grid-template-columns: repeat(3, 1fr);
       gap:14px;
     }
-    @media (max-width: 920px){ .services{grid-template-columns:1fr 1fr} }
-    @media (max-width: 560px){ .services{grid-template-columns:1fr} }
-    .service{
+    .svc{
       padding:16px;
-      border-radius: 18px;
+      border-radius:18px;
       border:1px solid var(--line);
-      background: linear-gradient(180deg, rgba(0,0,0,.0), rgba(255,255,255,.04));
-      min-height: 110px;
+      background: linear-gradient(180deg, rgba(0,0,0,.22), rgba(255,255,255,.04));
+      transition:.18s transform, .18s background;
+      position:relative;
+      overflow:hidden;
     }
-    .service strong{display:block; margin-bottom:6px}
-    .service span{color:var(--muted); font-size:13px}
-    .twoCol{display:grid; grid-template-columns: 1fr 1fr; gap:14px}
-    @media (max-width: 920px){ .twoCol{grid-template-columns:1fr} }
-    ul.clean{margin:10px 0 0; padding:0; list-style:none}
-    ul.clean li{
-      padding:10px 0;
-      border-top:1px solid var(--line);
-      color:var(--muted);
-      font-size:13px;
-      display:flex; gap:10px; align-items:flex-start;
-    }
-    ul.clean li:first-child{border-top:none}
-    .badge{
-      width:22px; height:22px; border-radius:7px;
-      background: rgba(47,224,139,.14);
-      border:1px solid rgba(47,224,139,.26);
-      display:flex; align-items:center; justify-content:center;
+    .svc:hover{transform:translateY(-2px); background: linear-gradient(180deg, rgba(0,0,0,.18), rgba(255,255,255,.06))}
+    .svc .top{display:flex; gap:10px; align-items:flex-start}
+    .icon{
+      width:38px; height:38px; border-radius:14px;
+      background:rgba(34,197,94,.14);
+      border:1px solid rgba(34,197,94,.25);
+      display:grid; place-items:center;
       flex:0 0 auto;
-      color:#c9ffe4;
-      font-weight:900;
-      font-size:12px;
     }
-    .footer{
-      margin-top:24px;
-      padding:22px 0 34px;
-      border-top:1px solid var(--line);
-      color:var(--muted);
-      font-size:12px;
+    .svc h4{margin:0; font-size:14px}
+    .svc p{margin:6px 0 0; color:var(--muted); font-size:13px}
+
+    .twoCol{
+      display:grid; grid-template-columns: 1fr 1fr; gap:14px;
     }
-    .areas{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px}
-    .area{
+
+    /* Gallery */
+    .gallery{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:12px;
+    }
+    .gItem{
+      border-radius:18px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.05);
+      overflow:hidden;
+      cursor:pointer;
+      position:relative;
+    }
+    .gItem img{width:100%; height:210px; object-fit:cover; display:block}
+    .gItem span{
+      position:absolute; left:12px; bottom:12px;
       padding:7px 10px;
       border-radius:999px;
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.05);
-      color:var(--muted);
-      font-weight:700;
+      background:rgba(0,0,0,.45);
+      border:1px solid rgba(255,255,255,.12);
       font-size:12px;
+      color:var(--text);
+    }
+
+    /* Footer */
+    footer{
+      padding:20px 0 40px;
+      color:var(--muted);
+      border-top:1px solid var(--line);
+      margin-top:18px;
+    }
+    footer .row{display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap}
+    .small{font-size:12px}
+
+    /* Modal */
+    .modalWrap{
+      position:fixed; inset:0;
+      display:none;
+      place-items:center;
+      background:rgba(0,0,0,.55);
+      backdrop-filter: blur(10px);
+      z-index:99;
+      padding:18px;
+    }
+    .modal{
+      width:min(860px, 100%);
+      border-radius:22px;
+      border:1px solid var(--line);
+      background: linear-gradient(180deg, rgba(8,16,12,.92), rgba(6,12,9,.92));
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .modalHeader{
+      display:flex; align-items:center; justify-content:space-between; gap:10px;
+      padding:14px 16px;
+      border-bottom:1px solid var(--line);
+    }
+    .modalHeader strong{font-size:14px}
+    .x{
+      width:38px; height:38px;
+      border-radius:12px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.06);
+      color:var(--text);
+      cursor:pointer;
+      display:grid; place-items:center;
+    }
+    .modalBody{padding:16px}
+    .modalGrid{display:grid; grid-template-columns: 1.1fr .9fr; gap:14px}
+    .modalBody label{display:block; font-size:12px; color:var(--muted); margin:10px 0 6px}
+    .inp, textarea{
+      width:100%;
+      padding:12px 12px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.06);
+      color:var(--text);
+      outline:none;
+      font-size:14px;
+    }
+    textarea{min-height:110px; resize:vertical}
+    .hint{color:var(--muted); font-size:12px; margin-top:8px}
+
+    /* Lightbox */
+    .lightbox img{width:100%; height:auto; display:block; border-radius:18px; border:1px solid var(--line)}
+
+    /* Mobile */
+    @media (max-width: 920px){
+      .heroGrid{grid-template-columns:1fr}
+      nav{display:none}
+      .grid{grid-template-columns:1fr}
+      .twoCol{grid-template-columns:1fr}
+      .gallery{grid-template-columns:1fr}
+      .hero h2{font-size:36px}
+      .modalGrid{grid-template-columns:1fr}
+    }
+
+    /* Tiny animations */
+    @media (prefers-reduced-motion:no-preference){
+      .fadeIn{animation:fade .55s ease both}
+      @keyframes fade{from{opacity:0; transform:translateY(10px)}to{opacity:1; transform:translateY(0)}}
     }
   </style>
 </head>
 
 <body>
-  <div class="nav">
-    <div class="navin">
-      <div class="brand">
-        <!-- Put your logo file in the repo as: logo.png -->
-        <img src="logo.png" alt="Verdant Landscape & Tree Services logo" />
-        <div>
-          <div class="t1">Verdant Landscape & Tree Services</div>
-          <div class="t2">Georgia • English & Español</div>
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <div class="row">
+      <a class="brand" href="#top">
+        <div class="logo" title="Verdant">
+          <!-- Upload logo.png into repo to show it -->
+          <img src="logo.png" alt="Verdant logo" onerror="this.style.display='none'; this.parentElement.textContent='V'; this.parentElement.style.fontWeight='900'; this.parentElement.style.color='#a7ffd1';" />
         </div>
-      </div>
+        <div>
+          <h1>Verdant Landscape &amp; Tree Services</h1>
+          <p>Serving Georgia • <strong style="color:var(--text)">Se habla Español</strong></p>
+        </div>
+      </a>
 
-      <div class="navlinks">
+      <nav>
         <a href="#services">Services</a>
-        <a href="#areas">Service Areas</a>
+        <a href="#remodel">Remodeling</a>
+        <a href="#areas">Areas</a>
+        <a href="#gallery">Work</a>
         <a href="#contact">Contact</a>
-      </div>
+      </nav>
 
-      <div class="navcta">
-        <a class="btn" href="tel:17065725205">📞 Call 706-572-5205</a>
-        <a class="btn primary" href="sms:17064077558">💬 Text 706-407-7558</a>
+      <div class="actions">
+        <span class="pill">✅ Free Estimates</span>
+        <a class="btn primary" href="tel:7065725205">📞 Call 706-572-5205</a>
+        <button class="btn green" onclick="openQuote()">Get a Quote</button>
       </div>
     </div>
   </div>
 
-  <main class="wrap">
-    <section class="hero">
-      <div class="grid2">
-        <div class="card">
-          <div class="cardin">
-            <span class="pill">✅ FREE ESTIMATES • Fast response</span>
-            <h1>Clean, sharp outdoor spaces — plus remodeling & painting.</h1>
-            <p class="sub">
-              Verdant Landscape & Tree Services helps homeowners and businesses across Georgia with
-              landscaping, tree services, and exterior upgrades — and we also handle
-              <strong>interior remodeling</strong> and <strong>painting</strong>.
-              <br /><br />
-              <strong>We speak Spanish too (Se habla español).</strong>
-            </p>
+  <main id="top" class="wrap hero fadeIn">
 
-            <div class="tags">
-              <div class="tag">Design</div>
-              <div class="tag">Decks</div>
-              <div class="tag">Mulch</div>
-              <div class="tag">Concrete</div>
-              <div class="tag">Hardscapes</div>
-              <div class="tag">Pinestraw</div>
-              <div class="tag">Gutter Cleaning</div>
-              <div class="tag">Pressure Washing</div>
-              <div class="tag">Home Renovations</div>
-              <div class="tag">Interior Remodeling</div>
-              <div class="tag">Painting</div>
-            </div>
+    <!-- HERO -->
+    <div class="heroGrid">
+      <div class="card heroMain">
+        <div class="badgeRow">
+          <span class="badge">🌿 <strong>Landscaping</strong> + Tree Services</span>
+          <span class="badge">🧱 Concrete &amp; Hardscapes</span>
+          <span class="badge">🏠 <strong>Interior Remodeling</strong> &amp; Painting</span>
+        </div>
 
-            <div class="ctaRow">
-              <a class="btn primary" href="tel:17065725205">📞 Call for a Free Estimate</a>
-              <a class="btn" href="sms:17064077558">💬 Text for a Free Estimate</a>
-              <a class="btn" href="#services">🌿 View Services</a>
-            </div>
-            <div class="note">No pressure — just a clear quote and solid work.</div>
+        <h2>Clean, modern outdoor spaces —<br>and quality home upgrades.</h2>
+        <p>
+          Verdant delivers reliable work across Georgia: decks, mulch, concrete, hardscapes, pine straw,
+          gutter cleaning, pressure washing, and <strong style="color:var(--text)">home renovations</strong>.
+          <br><span style="color:var(--muted)">English + Spanish support.</span>
+        </p>
+
+        <div class="heroCtas">
+          <a class="btn green" href="tel:7065725205">📞 Call for Free Estimate</a>
+          <a class="btn" href="sms:7064077558">💬 Text 706-407-7558</a>
+          <button class="btn ghost" onclick="scrollToId('services')">See Services →</button>
+        </div>
+
+        <div class="chips">
+          <span class="chip">Fast response</span>
+          <span class="chip">Residential &amp; commercial</span>
+          <span class="chip">Licensed-ready vibe</span>
+          <span class="chip">Modern finishing</span>
+        </div>
+      </div>
+
+      <div class="card side">
+        <h3>Quick Contact</h3>
+        <small>Call or text anytime for a free estimate.</small>
+
+        <div class="box">
+          <div class="nums">
+            <a class="btn primary" href="tel:7065725205">📞 Calls: 706-572-5205</a>
+            <a class="btn" href="sms:7064077558">💬 Text: 706-407-7558</a>
           </div>
+          <p class="hint">Tip: If you want, we can add a “Spanish line” button too.</p>
         </div>
 
-        <div class="card sidebox">
-          <div class="cardin">
-            <h3>Quick Contact</h3>
-            <div class="kv">
-              <a class="btn" href="tel:17065725205">📞 706-572-5205</a>
-              <a class="btn" href="sms:17064077558">💬 706-407-7558</a>
-            </div>
+        <div class="box">
+          <h3 style="margin:0 0 8px;">Instant Quote Popup</h3>
+          <small>Click and send details — we respond fast.</small>
+          <div style="height:10px"></div>
+          <button class="btn green" style="width:100%" onclick="openQuote()">Open Quote Form</button>
+        </div>
 
-            <div class="mini">
-              <h3>English & Spanish</h3>
-              <div style="color:var(--muted); font-size:13px;">
-                We can communicate in English or Spanish — whichever is easier for you.
-              </div>
-            </div>
-
-            <div class="mini">
-              <h3>What you can send us</h3>
-              <ul class="clean">
-                <li><span class="badge">1</span> Your city / address</li>
-                <li><span class="badge">2</span> A few photos (optional)</li>
-                <li><span class="badge">3</span> What service you need</li>
-              </ul>
-            </div>
-          </div>
+        <div class="box">
+          <h3 style="margin:0 0 8px;">Bilingual</h3>
+          <small>We speak English &amp; Spanish.</small>
         </div>
       </div>
-    </section>
-
-    <section id="services" class="section">
-      <div class="sectionTitle">
-        <div>
-          <h2>Services</h2>
-          <p>Everything listed on the flyer — plus interior remodeling & painting.</p>
-        </div>
-      </div>
-
-      <div class="services">
-        <div class="service"><strong>Design</strong><span>Planning, layout ideas, and upgrades that fit your property.</span></div>
-        <div class="service"><strong>Decks</strong><span>Build or refresh decks for a clean, solid outdoor space.</span></div>
-        <div class="service"><strong>Mulch</strong><span>Fresh mulch installs for curb appeal and healthier beds.</span></div>
-
-        <div class="service"><strong>Concrete</strong><span>Small concrete work and exterior improvements.</span></div>
-        <div class="service"><strong>Hardscapes</strong><span>Pavers, borders, and outdoor features done right.</span></div>
-        <div class="service"><strong>Pinestraw</strong><span>Clean pinestraw installs for a sharp finished look.</span></div>
-
-        <div class="service"><strong>Gutter Cleaning</strong><span>Clear, flowing gutters to protect your home.</span></div>
-        <div class="service"><strong>Pressure Washing</strong><span>Driveways, patios, siding, and more — refresh the whole look.</span></div>
-        <div class="service"><strong>Home Renovations</strong><span>Exterior + general upgrades — “& more…”</span></div>
-
-        <div class="service"><strong>Interior Remodeling</strong><span>All types of interior remodel work (remodelación de interiores).</span></div>
-        <div class="service"><strong>Painting</strong><span>Interior painting and finish work (pintura).</span></div>
-        <div class="service"><strong>And More…</strong><span>Tell us what you need — we’ll let you know if we can handle it.</span></div>
-      </div>
-    </section>
-
-    <section id="areas" class="section">
-      <div class="sectionTitle">
-        <div>
-          <h2>Service Areas</h2>
-          <p>Serving Atlanta and surrounding cities across Georgia.</p>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="cardin">
-          <div class="areas">
-            <span class="area">Atlanta</span>
-            <span class="area">South Fulton</span>
-            <span class="area">Sandy Springs</span>
-            <span class="area">Roswell</span>
-            <span class="area">Johns Creek</span>
-            <span class="area">Alpharetta</span>
-            <span class="area">Marietta</span>
-            <span class="area">Smyrna</span>
-            <span class="area">Brookhaven</span>
-            <span class="area">Stonecrest</span>
-            <span class="area">Norcross</span>
-            <span class="area">Duluth</span>
-            <span class="area">Snellville</span>
-            <span class="area">Lawrenceville</span>
-            <span class="area">Sugar Hill</span>
-            <span class="area">Winder</span>
-            <span class="area">Gainesville</span>
-            <span class="area">Athens</span>
-          </div>
-
-          <div style="margin-top:12px; color:var(--muted); font-size:13px;">
-            Not listed? Text us your city — we travel across Georgia.
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="section">
-      <div class="sectionTitle">
-        <div>
-          <h2>Free Estimates</h2>
-          <p>Call or text — quickest response.</p>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="cardin">
-          <div class="ctaRow">
-            <a class="btn primary" href="tel:17065725205">📞 Call 706-572-5205</a>
-            <a class="btn" href="sms:17064077558">💬 Text 706-407-7558</a>
-          </div>
-
-          <div class="note">
-            Se habla español. / English available.
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <div class="footer">
-      © <span id="y"></span> Verdant Landscape & Tree Services • Georgia • Free Estimates
     </div>
+
+    <!-- SERVICES -->
+    <section id="services">
+      <div class="sectionTitle">
+        <div>
+          <h3>Services</h3>
+          <p>Everything listed on the flyer + more.</p>
+        </div>
+        <button class="btn primary" onclick="openQuote()">Request Free Estimate</button>
+      </div>
+
+      <div class="grid">
+        <div class="svc">
+          <div class="top">
+            <div class="icon">🌿</div>
+            <div>
+              <h4>Landscape Design</h4>
+              <p>Clean layouts, curb appeal upgrades, and maintenance planning.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="svc">
+          <div class="top">
+            <div class="icon">🪵</div>
+            <div>
+              <h4>Decks</h4>
+              <p>Build, repair, and refresh decks for outdoor living.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="svc">
+          <div class="top">
+            <div class="icon">🧱</div>
+            <div>
+              <h4>Concrete</h4>
+              <p>Driveways, walkways, pads, edging — durable and clean finish.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="svc">
+          <div class="top">
+            <div class="icon">🪨</div>
+            <div>
+              <h4>Hardscapes</h4>
+              <p>Pavers, borders, patios, retaining features — modern look.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="svc">
+          <div class="top">
+            <div class="icon">🍂</div>
+            <div>
+              <h4>Mulch</h4>
+              <p>Fresh mulch installs and seasonal cleanup.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="svc">
+          <div class="top">
+            <div class="icon">🌾</div>
+            <div>
+              <h4>Pine Straw</h4>
+              <p>Bed refresh, clean lines, and a sharp “new” look.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="svc">
+          <div class="top">
+            <div class="icon">🧽</div>
+            <div>
+              <h4>Pressure Washing</h4>
+              <p>Driveways, patios, siding — remove stains and buildup.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="svc">
+          <div class="top">
+            <div class="icon">🧼</div>
+            <div>
+              <h4>Gutter Cleaning</h4>
+              <p>Clear gutters, improve flow, help prevent damage.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="svc">
+          <div class="top">
+            <div class="icon">🌲</div>
+            <div>
+              <h4>Tree Services</h4>
+              <p>Trimming and cleanup to keep your property safe and clean.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REMODEL -->
+    <section id="remodel">
+      <div class="sectionTitle">
+        <div>
+          <h3>Home Renovations</h3>
+          <p>Interior remodeling + painting (English &amp; Spanish).</p>
+        </div>
+      </div>
+
+      <div class="twoCol">
+        <div class="svc">
+          <div class="top">
+            <div class="icon">🛠️</div>
+            <div>
+              <h4>Interior Remodeling</h4>
+              <p>All types of interior remodeling — upgrades, refreshes, improvements.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="svc">
+          <div class="top">
+            <div class="icon">🎨</div>
+            <div>
+              <h4>Painting</h4>
+              <p>Clean paint work that makes the space feel brand new.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AREAS -->
+    <section id="areas">
+      <div class="sectionTitle">
+        <div>
+          <h3>Service Areas</h3>
+          <p>Serving Atlanta &amp; surrounding cities across Georgia.</p>
+        </div>
+      </div>
+
+      <div class="svc">
+        <p style="margin:0; color:var(--muted)">
+          <strong style="color:var(--text)">Atlanta</strong>, South Fulton, Sandy Springs, Roswell, Johns Creek, Alpharetta,
+          Marietta, Smyrna, Brookhaven, Stonecrest, Norcross, Duluth, Snellville, Lawrenceville,
+          Sugar Hill, Winder, Gainesville, Athens.
+        </p>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery">
+      <div class="sectionTitle">
+        <div>
+          <h3>Our Work</h3>
+          <p>Tap an image for a full-screen view.</p>
+        </div>
+      </div>
+
+      <!-- Put your real photos as: work1.jpg, work2.jpg, work3.jpg etc -->
+      <div class="gallery">
+        <div class="gItem" onclick="openLightbox('image.jpeg','Project Example')">
+          <img src="image.jpeg" alt="Work photo" onerror="this.parentElement.style.display='none'">
+          <span>Project Example</span>
+        </div>
+        <div class="gItem" onclick="openLightbox('image.png','Project Example')">
+          <img src="image.png" alt="Work photo" onerror="this.parentElement.style.display='none'">
+          <span>Project Example</span>
+        </div>
+        <div class="gItem" onclick="openLightbox('work1.jpg','Add your photos')">
+          <img src="work1.jpg" alt="Work photo" onerror="this.parentElement.style.display='none'">
+          <span>Add your photos</span>
+        </div>
+      </div>
+
+      <p class="hint">
+        Want it to look crazy professional? Upload 6–12 real photos and I’ll tell you the exact file names to use.
+      </p>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="sectionTitle">
+        <div>
+          <h3>Contact</h3>
+          <p>Free estimates — call or text now.</p>
+        </div>
+      </div>
+
+      <div class="twoCol">
+        <div class="svc">
+          <h4 style="margin:0 0 8px;">Call</h4>
+          <a class="btn green" href="tel:7065725205">📞 706-572-5205</a>
+          <p class="hint">Best for quick scheduling.</p>
+        </div>
+
+        <div class="svc">
+          <h4 style="margin:0 0 8px;">Text</h4>
+          <a class="btn primary" href="sms:7064077558">💬 706-407-7558</a>
+          <p class="hint">Send pics + address and we’ll price it fast.</p>
+        </div>
+      </div>
+
+      <div style="height:10px"></div>
+      <button class="btn" onclick="openQuote()">Open Quote Pop-Up</button>
+    </section>
+
+    <footer>
+      <div class="row">
+        <div class="small">© <span id="y"></span> Verdant Landscape &amp; Tree Services • Georgia</div>
+        <div class="small">Se habla Español • Free Estimates</div>
+      </div>
+    </footer>
   </main>
+
+  <!-- QUOTE MODAL -->
+  <div class="modalWrap" id="quoteModal" role="dialog" aria-modal="true">
+    <div class="modal fadeIn">
+      <div class="modalHeader">
+        <strong>Free Estimate • Request a Quote</strong>
+        <button class="x" onclick="closeQuote()">✕</button>
+      </div>
+      <div class="modalBody">
+        <div class="modalGrid">
+          <div>
+            <label>Name</label>
+            <input class="inp" id="qName" placeholder="Your name" />
+
+            <label>Phone</label>
+            <input class="inp" id="qPhone" placeholder="Your phone number" />
+
+            <label>City</label>
+            <input class="inp" id="qCity" placeholder="Atlanta, Lawrenceville, etc." />
+
+            <label>Service Needed</label>
+            <input class="inp" id="qService" placeholder="Mulch, concrete, pressure washing, remodeling..." />
+
+            <label>Details</label>
+            <textarea id="qDetails" placeholder="Tell us what you need (size, timeline, photos available, etc.)"></textarea>
+
+            <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:12px">
+              <button class="btn green" onclick="sendQuoteText()">Send by Text</button>
+              <a class="btn primary" href="tel:7065725205">Call Instead</a>
+              <button class="btn" onclick="closeQuote()">Close</button>
+            </div>
+
+            <p class="hint">
+              This sends your info to the business phone via SMS (you can edit the number in code anytime).
+            </p>
+          </div>
+
+          <div class="svc" style="background:rgba(0,0,0,.25)">
+            <h4 style="margin:0 0 10px;">What we can help with</h4>
+            <p style="margin:0; color:var(--muted)">
+              • Design • Decks • Mulch • Concrete • Hardscapes • Pine Straw • Gutter Cleaning • Pressure Washing • Home Renovations • Interior Remodeling • Painting
+            </p>
+            <div style="height:12px"></div>
+            <p class="hint">English + Spanish • Free Estimates</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LIGHTBOX MODAL -->
+  <div class="modalWrap" id="lightboxModal" role="dialog" aria-modal="true">
+    <div class="modal lightbox fadeIn" style="max-width:980px">
+      <div class="modalHeader">
+        <strong id="lbTitle">Photo</strong>
+        <button class="x" onclick="closeLightbox()">✕</button>
+      </div>
+      <div class="modalBody">
+        <img id="lbImg" src="" alt="Work photo" />
+      </div>
+    </div>
+  </div>
 
   <script>
     document.getElementById("y").textContent = new Date().getFullYear();
+
+    function scrollToId(id){
+      const el = document.getElementById(id);
+      if(!el) return;
+      el.scrollIntoView({behavior:"smooth", block:"start"});
+    }
+
+    // Quote modal
+    const quoteModal = document.getElementById("quoteModal");
+    function openQuote(){ quoteModal.style.display="grid"; }
+    function closeQuote(){ quoteModal.style.display="none"; }
+
+    // Lightbox
+    const lb = document.getElementById("lightboxModal");
+    const lbImg = document.getElementById("lbImg");
+    const lbTitle = document.getElementById("lbTitle");
+    function openLightbox(src, title){
+      lbTitle.textContent = title || "Photo";
+      lbImg.src = src;
+      lb.style.display="grid";
+    }
+    function closeLightbox(){ lb.style.display="none"; lbImg.src=""; }
+
+    // Close modals on background click
+    [quoteModal, lb].forEach(m => {
+      m.addEventListener("click", (e)=>{ if(e.target === m) m.style.display="none"; });
+    });
+
+    // Send quote via SMS to BUSINESS TEXT LINE
+    const BUSINESS_TEXT = "7064077558";
+
+    function sendQuoteText(){
+      const name = document.getElementById("qName").value.trim();
+      const phone = document.getElementById("qPhone").value.trim();
+      const city = document.getElementById("qCity").value.trim();
+      const service = document.getElementById("qService").value.trim();
+      const details = document.getElementById("qDetails").value.trim();
+
+      const msg =
+`Free Estimate Request:
+Name: ${name || "-"}
+Phone: ${phone || "-"}
+City: ${city || "-"}
+Service: ${service || "-"}
+Details: ${details || "-"}`;
+
+      const url = `sms:${BUSINESS_TEXT}&body=${encodeURIComponent(msg)}`;
+      window.location.href = url;
+    }
+
+    // Optional: auto popup after a few seconds (comment out if you hate it)
+    setTimeout(()=>{ openQuote(); }, 6500);
   </script>
 </body>
 </html>
